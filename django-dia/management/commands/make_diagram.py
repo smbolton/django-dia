@@ -388,8 +388,8 @@ class Command(BaseCommand):
         result = list(set(result))
         if self.exclude_modules:
             result = list(filter(lambda model: model.__module__ not in self.exclude_modules, result))
-        if self.exclude_fields:
-            result = list(filter(lambda model: self.get_model_name(model) not in self.exclude_fields, result))
+        if self.exclude_models:
+            result = list(filter(lambda model: self.get_model_name(model) not in self.exclude_models, result))
 
         return result
 
