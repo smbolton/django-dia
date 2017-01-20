@@ -21,7 +21,7 @@ DJANGO_VERSION = get_version()
 if StrictVersion(DJANGO_VERSION) >= StrictVersion('1.9'):
     from django.contrib.contenttypes.fields import GenericRelation
     from django.apps import apps
-    get_models = apps.get_models
+    get_models = lambda appconfig: list(appconfig.get_models(include_auto_created=True))
     get_apps = apps.app_configs.items
     get_app = apps.get_app_config
 else:
